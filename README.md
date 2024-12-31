@@ -3,7 +3,7 @@
 
 ![Screenrecording of examples/balls.k](bs.gif)
 
-It works listening to two ports: one for custom graphic commands and the other for sending events.
+It works listening on two local ports: one for custom graphic commands and the other for sending events.
 I am primarly developing it to enable simple games/graphic programming in [K](https://codeberg.org/ngn/k) and APL.
 
 Any contribution is welcomed :)
@@ -16,8 +16,8 @@ Any contribution is welcomed :)
 - ```FC x_1 y_1 r_1 ... x_n y_n r_n```: Fill circle(s)
 
 ## Ports:
-- 1234: Waits for graphic commands
-- 1235: Sends keystrokes
+- 12345: Waits for graphic commands
+- 12346: Sends keystrokes
 
 ## Example program (in ngn/k)
 ```
