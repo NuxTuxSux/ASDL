@@ -1,0 +1,1 @@
+clang++ -std=c++17 -lSDL2 ASDL.cpp -o ASDL
