@@ -20,4 +20,4 @@ bv:{-1 1@/:&[res>x+y;x>y]}                   / bounces
 upd:{cts::&[res-\:/:rs;]rs|cts+vs;vs::a+/:vs*bv'[cts+vs;rs+3]}
 main:{tt:upd[];tt:C@,"[";tt:dB'[cls;_cts,'_rs];C@,"]"}
 
-1000 main/0n
+/ 1000 main/0n
