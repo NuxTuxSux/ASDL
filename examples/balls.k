@@ -14,6 +14,6 @@ dB:{SC@x;FC@y}                               / draw ball
 bv:{-1 1@/:&[res>x+y;x>y]}                   / bounces
 
 upd:{cts::&[res-\:/:rs;]rs|cts+vs;vs::a+/:vs*bv'[cts+vs;rs]}
-main:{t:upd[];t:BF[];t:dB'[cls;_cts,'_rs];EF[]}
+main:{upd[];BF[];dB'[cls;_cts,'_rs];EF[]}
 
 100 main/0n
