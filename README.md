@@ -4,7 +4,7 @@
 ![Screenrecording of examples/balls.k](bs.gif)
 
 It works listening on two local ports: one for custom graphic commands and the other for sending events.
-I am primarly developing it to enable simple games/graphic programming in [K](https://codeberg.org/ngn/k) and APL.
+I am primarly developing it to enable simple games/graphic programming in K and APL.
 
 Any contribution is welcomed :)
 
@@ -19,29 +19,25 @@ Any contribution is welcomed :)
 - 12345: Waits for graphic commands
 - 12346: Sends keystrokes
 
-## Example program (in ngn/k)
+## Example program (in [ngn/k](https://codeberg.org/ngn/k))
 ```
-res:1024 768
-dt:1000
-S:{t:x+`t[];(t>){`t[]}/0n;}
+\l asdl.k
 
+res:1024 768
 a:0 3.0                                      / acceleration
 rrng:20 50                                   / radii range
 n:200                                        / n. of balls
+
 cls:(n;3)#*[3;n]?255                         / colors
 rs:rrng[0]+n?-/|rrng                         / radii
 cts:+n?/:res                                 / initial centers
 vs:8*(n;2)#-0.5+?n*2                         / velocities
 
-keyb:<`":12346"
-cmdf:<`":12345"
-C:{cmdf 0:x}
-
-dB:{C"SC ",`k@x;C"FC ",`k@y}                 / draw ball
+dB:{SC@x;FC@y}                               / draw ball
 bv:{-1 1@/:&[res>x+y;x>y]}                   / bounces
 
-upd:{cts::&[res-\:/:rs;]rs|cts+vs;vs::a+/:vs*bv'[cts+vs;rs+3]}
-main:{tt:upd[];tt:C@,"[";tt:dB'[cls;_cts,'_rs];C@,"]"}
+upd:{cts::&[res-\:/:rs;]rs|cts+vs;vs::a+/:vs*bv'[cts+vs;rs]}
+main:{t:upd[];t:BF[];t:dB'[cls;_cts,'_rs];EF[]}
 
-1000 main/0n
+100 main/0n
 ```
